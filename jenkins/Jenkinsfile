@@ -8,7 +8,9 @@ pipeline {
         }
         stage('Build') {
             steps {
+                dir("simple-java-maven-app") {
                 sh 'mvn -B -Denforcer.skip=true -DskipTests clean package'
+            }
             }
         }
         stage('Test') {
